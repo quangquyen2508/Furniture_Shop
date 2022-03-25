@@ -49,7 +49,7 @@ To run this website, some requirements need to have:
 
 Step 1: Clone project to local computer
 
-	git clone https://github.com/voducminh1402/MAQFurniBest.git
+	git clone https://github.com/quangquyen2508/Furniture_Shop.git
 
 Step 2: Set up database
  - Open Microsoft SQL Server and run file script in database folder
