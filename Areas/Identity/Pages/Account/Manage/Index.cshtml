@@ -1,0 +1,198 @@
+@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Profile";
+    ViewData["ActivePage"] = ManageNavPages.Index;
+}
+
+@* <h4>@ViewData["Title"]</h4> *@
+<partial name="_StatusMessage" model="Model.StatusMessage" />
+@* <div class="row">
+    <div class="col-md-6">
+    <form id="profile-form" method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="form-group">
+    <label asp-for="Username"></label>
+    <input asp-for="Username" class="form-control" disabled />
+    </div>
+    <div class="form-group">
+    <label asp-for="Input.PhoneNumber"></label>
+    <input asp-for="Input.PhoneNumber" class="form-control" />
+    <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
+    </div>
+    <button id="update-profile-button" type="submit" class="btn btn-primary">Save</button>
+    </form>
+    </div>
+    </div> *@
+<!-- breadcrumb-area start -->
+<div class="breadcrumb-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="row breadcrumb_box  align-items-center">
+                    <div class="col-lg-6 col-md-6 col-sm-12 text-center text-md-left">
+                        <h2 class="breadcrumb-title">Shop</h2>
+                    </div>
+                    <div class="col-lg-6  col-md-6 col-sm-12">
+                        <!-- breadcrumb-list start -->
+                        <ul class="breadcrumb-list text-center text-md-right">
+                            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                            <li class="breadcrumb-item active">Account</li>
+                        </ul>
+                        <!-- breadcrumb-list end -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- breadcrumb-area end -->
+
+<!-- account area start -->
+@* <div class="checkout-area pt-100px pb-100px">
+    <div class="container">
+    <div class="row">
+    <div class="ml-auto mr-auto col-lg-9">
+    <div class="checkout-wrapper">
+    <div id="faq" class="panel-group">
+    <form asp-controller="ChangeInfo" asp-action="ChangeInfo" method="post">
+    <div class="panel panel-default single-my-account" data-aos="fade-up" data-aos-delay="200">
+    <div class="panel-heading my-account-title">
+    <h3 class="panel-title"><span>1 .</span> <a data-bs-toggle="collapse"
+    class="collapsed" aria-expanded="true" href="#my-account-1">Edit your
+    account information </a>
+    </h3>
+    </div>
+    <div id="my-account-1" class="panel-collapse collapse show" data-bs-parent="#faq">
+    <div class="panel-body">
+    <div class="myaccount-info-wrapper">
+    <div class="account-info-wrapper">
+    <h4>My Account Information</h4>
+    <h5>Your Personal Details</h5>
+    </div>
+    <div class="row">
+    <div class="col-lg-6 col-md-6">
+    <div class="billing-info">
+    <label>User name</label>
+    <input name="name" class="form-control" />
+    </div>
+    </div>
+    <div class="col-lg-6 col-md-6">
+    <div class="billing-info">
+    <label>Phone number</label>
+    <input name="phone" class="form-control" />
+
+    </div>
+    </div>
+    </div>
+    <div class="billing-back-btn">
+    <div class="billing-back">
+    <a href="#"><i class="icon-arrow-up-circle"></i> back</a>
+    </div>
+    <div class="billing-btn">
+    <button type="submit" class="btn btn-primary">Save</button>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </form>
+    <form asp-action="ChangePassword" method="post">
+    <div class="panel panel-default single-my-account" data-aos="fade-up" data-aos-delay="400">
+    <div class="panel-heading my-account-title">
+    <h3 class="panel-title"><span>2 .</span> <a data-bs-toggle="collapse" class="collapsed"
+    aria-expanded="false" href="#my-account-2">Change your password </a></h3>
+    </div>
+    <div id="my-account-2" class="panel-collapse collapse" data-bs-parent="#faq">
+    <div class="panel-body">
+    <div class="myaccount-info-wrapper">
+    <div class="account-info-wrapper">
+    <h4>Change Password</h4>
+    <h5>Your Password</h5>
+    </div>
+    <div class="row">
+    <div class="col-lg-12 col-md-12">
+    <div class="billing-info">
+    <label>Current Password</label>
+    <input type="password" />
+    </div>
+    </div>
+    <div class="col-lg-12 col-md-12">
+    <div class="billing-info">
+    <label>Password</label>
+    <input type="password" />
+    </div>
+    </div>
+    <div class="col-lg-12 col-md-12">
+    <div class="billing-info">
+    <label>Password Confirm</label>
+    <input type="password" />
+    </div>
+    </div>
+    </div>
+    <div class="billing-back-btn">
+    <div class="billing-back">
+    <a href="#"><i class="icon-arrow-up-circle"></i> back</a>
+    </div>
+    <div class="billing-btn">
+    <button type="submit" class="btn btn-primary">Save</button>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </form>
+    <form id="email-form" method="post">
+    <div class="panel panel-default single-my-account " data-aos="fade-up" data-aos-delay="600">
+    <div class="panel-heading my-account-title">
+    <h3 class="panel-title"><span>3 .</span> <a data-bs-toggle="collapse" class="collapsed"
+    aria-expanded="false" href="#my-account-3">Change your email
+    </a></h3>
+    </div>
+    <div id="my-account-3" class="panel-collapse collapse" data-bs-parent="#faq">
+    <div class="panel-body">
+    <div class="myaccount-info-wrapper">
+    <div class="account-info-wrapper">
+    <h4>Change Email</h4>
+    <h5>Your Email</h5>
+    </div>
+    <div class="col-lg-12 col-md-12">
+    <div class="billing-info">
+    <label>Email Address</label>
+    <input type="email" />
+    </div>
+    </div>
+    <div class="col-lg-12 col-md-12">
+    <div class="billing-info">
+    <label>New Email Address</label>
+    <input type="email" />
+    </div>
+    </div>
+    <div class="billing-back-btn">
+    <div class="billing-back">
+    <a href="#"><i class="icon-arrow-up-circle"></i> back</a>
+    </div>
+    <div class="billing-btn">
+    <button id="change-email-button" type="submit" asp-page-handler="ChangeEmail" class="btn btn-primary">Save</button>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </form>
+    </div>
+
+    </div>
+    </div>
+    </div>
+    </div>
+    </div> *@
+<!-- account area end -->
+
+@section Scripts {
+<partial name="_ValidationScriptsPartial" />
+}

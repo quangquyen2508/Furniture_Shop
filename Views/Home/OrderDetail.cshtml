@@ -1,0 +1,81 @@
+
+<!-- breadcrumb-area start -->
+<div class="breadcrumb-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="row breadcrumb_box  align-items-center">
+                    <div class="col-lg-6 col-md-6 col-sm-12 text-center text-md-left">
+                        <h2 class="breadcrumb-title">Shop</h2>
+                    </div>
+                    <div class="col-lg-6  col-md-6 col-sm-12">
+                        <!-- breadcrumb-list start -->
+                        <ul class="breadcrumb-list text-center text-md-right">
+                            <li class="breadcrumb-item"><a asp-action="OrderHistory">Orders History</a></li>
+                            <li class="breadcrumb-item active">Order Details</li>
+                        </ul>
+                        <!-- breadcrumb-list end -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- breadcrumb-area end -->
+
+<!-- Wishlist Area Start -->
+<div class="cart-main-area pt-100px pb-100px">
+    <div class="container">
+        <span class="cart-page-title">Order ID: </span><span>@ViewBag.OrderId</span>
+        
+        <div class="row mt-5">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                <form action="#">
+                    <div class="table-content table-responsive cart-table-content">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Image</th>
+                                    <th>Product Name</th>
+                                    <th>Until Price</th>
+                                    <th>Qty</th>
+                                    <th>Subtotal</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @{ var list = ViewBag.OrderDetails;
+                                    foreach (var item in list)
+                                {
+                                    
+                                
+                                    decimal price = item.DetailPrice * item.Quantity;
+                                
+                                
+                                <tr>
+                                    <td class="product-thumbnail">
+                                        <a href="#"><img class="img-responsive ml-3"
+                                                src="@item.Product.ProductImage" alt="" /></a>
+                                    </td>
+                                    <td class="product-name"><a href="#">@item.Product.ProductName</a></td>
+                                    
+                                    <td class="product-price-cart"><span class="amount">@String.Format(System.Globalization.CultureInfo.GetCultureInfo("vi-VN"), "{0:c}", item.DetailPrice)</span></td>
+                                    <td class="product-quantity">
+                                        <span class="amount">@item.Quantity</span>
+                                    </td>
+                                    <td class="product-subtotal">@String.Format(System.Globalization.CultureInfo.GetCultureInfo("vi-VN"), "{0:c}", price)</td>
+                                    
+                                </tr>
+                                }}
+                                
+                            </tbody>
+                        </table>
+                    </div>
+                </form>
+                <input type="hidden" id="detail-add">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Wishlist Area End -->
